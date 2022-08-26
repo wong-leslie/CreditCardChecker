@@ -1,6 +1,6 @@
 // All valid credit card numbers
 const valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
-// 8+0+8+3+1+0+8+0+9+5+7+3+9+6+5+8
+// 8+0+8+3+1+0+8+0+9+5+7+3+9+6++8
 // 80
 
 const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
@@ -26,12 +26,12 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
 
-//3 
+// validateCred() - function that takes in one parameter (arr) and returns whether or not the array contains 
+//digits of a valid credit card number; true if valid, false if not.
 const validateCred = arr => {
     let total = 0;
     //val added to total
     // let val = 0;
-
     if (arr.length % 2 === 0 ){
         for (let i = arr.length - 1 ; i >= 0; i--){ 
             // console.log(`log ${i}`) - check current iteration
@@ -75,6 +75,22 @@ const validateCred = arr => {
     } else return false;
 }
 
+// console.log(validateCred(valid5));
 
 
-console.log(validateCred(valid5));
+//findInvalidCards()- function that takes in one parameter for a nested array (array of arrays)
+// returns an array of invalid cards 
+
+
+const findInvalidCards =  arr => {
+    let invalidArr = []
+    for (const array of arr){
+        if (validateCred(array) !== true){
+            invalidArr.push(array);
+        }
+    }
+    return invalidArr;
+}   
+// console.log(findInvalidCards(batch))
+
+const idInvalidCardCompanies()
