@@ -91,6 +91,38 @@ const findInvalidCards =  arr => {
     }
     return invalidArr;
 }   
-// console.log(findInvalidCards(batch))
+console.log(findInvalidCards(batch))
 
-const idInvalidCardCompanies()
+const idInvalidCardCompanies = arr => {
+    let companyList = [];
+    //needed a way to keep track of the first digit of the Credit Cards that have been accounted for
+    let accountedFor = []
+    for(const array of arr){
+        if (accountedFor.includes(array[0]) === false){
+            accountedFor.push(array[0]);
+            switch(array[0]){
+                case 3: 
+                    accountedFor.push(array[0])
+                    companyList.push("Amex (American Express)");
+                    break;
+                case 4: 
+                    companyList.push("Visa"); 
+                    break;
+                case 5: 
+                    companyList.push("MasterCard"); 
+                    break;
+                case 6: 
+                    companyList.push("Discover");
+                    break;
+                default: 
+                    companyList.push("Company not found");
+        }
+
+    }
+
+   
+}
+    return companyList; 
+}
+
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
